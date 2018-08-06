@@ -1,10 +1,8 @@
-# restful.training Front End
+# To Do List
+
+Work in progress...
 
 ## Setup
 
 - run `npm install` to install packages
 - run `npm start` to run the web server
-
-## Config
-
-- update `src/data/axios.js` with your restful.training username and API key
