@@ -5,6 +5,7 @@ import Add from "./containers/Add";
 import Filters from "./containers/Filters";
 import List from "./containers/List";
 
+import './App.css';
 
 export default () => (
     <div>

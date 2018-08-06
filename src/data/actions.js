@@ -50,7 +50,14 @@ export const addTask = (task) => ({
 
 export const REMOVE_TASK = Symbol("REMOVE_TASK");
 
-export const removeTask = (id) => ({
+export const removeTask = (i) => ({
 	type: REMOVE_TASK,
-	id,
+	i,
+});
+
+export const COMPLETE_TASK = Symbol("COMPLETE_TASK");
+
+export const completeTask = (i) => ({
+	type: COMPLETE_TASK,
+	i,
 });

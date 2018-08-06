@@ -7,9 +7,10 @@ import {
 	updateEdit,
 	resetEditState,
 	removeTask,
+	completeTask,
 } from "../data/actions";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, i) => {
 
 	let tasksRaw = state.get("tasks");
 	let tasksFiltered = [];
@@ -26,7 +27,7 @@ const mapStateToProps = state => {
 	}
 
 	return {
-		tasks: tasksFiltered,		
+		tasks: tasksFiltered,
 	}
 };
 
@@ -35,6 +36,7 @@ const mapDispatchToProps = (dispatch) => ({
 	onChange: (i, value) => dispatch(updateEdit(i, value)),
 	stopEditing: (i) => dispatch(resetEditState(i)),
 	deleteTask: (i) => dispatch(removeTask(i)),
+	completeTask: (i) => dispatch(completeTask(i)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

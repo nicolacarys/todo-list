@@ -5,7 +5,7 @@ export default Map({
 		Map({
 	        id: 0,
 	        task: "Write React-Redux App",
-	        completed: true,
+	        completed: false,
 	        editing: false,
     	}),
     	Map({
@@ -13,7 +13,6 @@ export default Map({
 	        task: "Write API thingies",
 	        completed: false,
 	        editing: false,
-
     	}),
     	Map({
 	        id: 2,
@@ -21,9 +20,10 @@ export default Map({
 	        completed: false,
 	        editing: false,
     	})
-
 	]),
+
 	value: "",
+
 	filter: 0,
    
 });

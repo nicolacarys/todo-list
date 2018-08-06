@@ -9,6 +9,7 @@ import {
     CREATE_TASK,
     ADD_TASK,
     REMOVE_TASK,
+    COMPLETE_TASK,
 } from "./actions"
 
 const updateValue = (state, { value }) => state.set("value", value);
@@ -43,8 +44,10 @@ const addTask = (state, action) => {
         }
     }
 };
+// removes the correct item, but it doesn't seem to work with the Item map over "tasks"
+const removeTask = (state, { i }) => state.get("tasks").filter((task, index) => index !== i);
 
-const removeTask = (state, { i }) => state.get("tasks").filter((task, index) => index !== 0);
+const completeTask = (state, { i }) => state.setIn(["tasks", i, "completed"], true);
 
 export default (state = initial, action) => {
     switch (action.type) {
@@ -56,6 +59,7 @@ export default (state = initial, action) => {
         case CREATE_TASK: return createTask(state, action);
         case ADD_TASK: return addTask(state, action);
         case REMOVE_TASK: return removeTask(state, action);
+        case COMPLETE_TASK: return completeTask(state, action);
         default: return state;
     }
 };
