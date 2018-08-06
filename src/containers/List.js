@@ -6,9 +6,8 @@ import {
 	updateEditState, 
 	updateEdit,
 	resetEditState,
-} from "../data/actions/state";
-
-import { deleteTask } from "../data/actions/api";
+	removeTask,
+} from "../data/actions";
 
 const mapStateToProps = state => {
 
@@ -31,11 +30,11 @@ const mapStateToProps = state => {
 	}
 };
 
-const mapDispatchToProps = (dispatch, { id }) => ({
+const mapDispatchToProps = (dispatch) => ({
 	editItem: (i) => dispatch(updateEditState(i)),
 	onChange: (i, value) => dispatch(updateEdit(i, value)),
 	stopEditing: (i) => dispatch(resetEditState(i)),
-	onSubmit: () => dispatch(deleteTask(id)),
+	deleteTask: (i) => dispatch(removeTask(i)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

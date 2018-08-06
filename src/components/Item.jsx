@@ -1,6 +1,6 @@
 import React from "react";
 
-export default ({ editing, onChange, value, editItem, stopEditing, children, onSubmit }) => (
+export default ({ editing, onChange, value, editItem, stopEditing, children, deleteTask }) => (
 	<div>
 	  <input 
 	  	type="checkbox"/>
@@ -13,10 +13,6 @@ export default ({ editing, onChange, value, editItem, stopEditing, children, onS
 	  		<p onClick={ editItem }>{ children }</p>
 	  	}
 
-	  <input 
-	  	type="submit" 
-	  	onSubmit={ onSubmit } 
-	  	value="DELETE" 
-		/> 
+	  <button onClick={ deleteTask }>Delete</button> 
   </div>
 );

@@ -6,33 +6,45 @@ import {
     UPDATE_EDIT_STATE,
     UPDATE_EDIT,
     RESET_EDIT_STATE,
+    CREATE_TASK,
     ADD_TASK,
     REMOVE_TASK,
-} from "./actions/state"
+} from "./actions"
 
-// state functions
 const updateValue = (state, { value }) => state.set("value", value);
+
 const updateFilter = (state, { filter }) => state.set("filter", filter);
+
 const updateEditState = (state, { i }) => state.setIn(["tasks", i, "editing"], true);
+
 const updateEdit = (state, { i, value }) => state.setIn(["tasks", i, "task"], value);
+
 const resetEditState = (state, { i }) => state.setIn(["tasks", i, "editing"], false);
 
-// API functions
-const addTask = (state, { task }) => state.update("tasks", tasks =>
-    tasks.push(task.set("editing", false)));
+const createTask = (state, { task }) => {
+    let newID = state.get("tasks") ? state.get("tasks").count() : 0;
+    let newTask = state.get("value");
 
-const removeTask = (state, { id }) => {
-    let itemId = state.getIn(["tasks", "id"]);
-    let tasks = state.get("tasks");
-
-    return tasks.filter(task => itemId !== id)
+    return {
+        id: newID,
+        task: newTask,
+        completed: false,
+        editing: false,
+    }
 };
 
+const addTask = (state, action) => {
+    let task = createTask(state, action);
 
-// find the index of the item with that id and remove it from the array, return a new version of the array state - FILTER?
+    return {
+        ...state, tasks: {
+            ...state.tasks,
+                task,
+        }
+    }
+};
 
-// Create API actions.
-// STYLE!
+const removeTask = (state, { i }) => state.get("tasks").filter((task, index) => index !== 0);
 
 export default (state = initial, action) => {
     switch (action.type) {
@@ -41,6 +53,7 @@ export default (state = initial, action) => {
         case UPDATE_EDIT_STATE: return updateEditState(state, action);
         case UPDATE_EDIT: return updateEdit(state, action);
         case RESET_EDIT_STATE: return resetEditState(state, action);
+        case CREATE_TASK: return createTask(state, action);
         case ADD_TASK: return addTask(state, action);
         case REMOVE_TASK: return removeTask(state, action);
         default: return state;

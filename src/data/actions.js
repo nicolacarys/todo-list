@@ -34,8 +34,13 @@ export const resetEditState = (i) => ({
 	i,
 });
 
+export const CREATE_TASK = Symbol("CREATE_TASK");
 
-// API actions
+export const createTask = (task) => ({
+	type: CREATE_TASK,
+	task,
+});
+
 export const ADD_TASK = Symbol("ADD_TASK");
 
 export const addTask = (task) => ({
@@ -49,4 +54,3 @@ export const removeTask = (id) => ({
 	type: REMOVE_TASK,
 	id,
 });
-

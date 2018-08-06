@@ -1,9 +1,8 @@
 import { connect } from "react-redux";
 import { 
 	updateValue,
-} from "../data/actions/state";
-
-import { postTask } from "../data/actions/api";
+	addTask,
+} from "../data/actions";
 
 import Add from "../components/Add";
 
@@ -13,7 +12,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	onChange: (e) => dispatch(updateValue(e.target.value)),
-	onClick: () => dispatch(postTask()),
+	addItem: () => dispatch(addTask()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Add);

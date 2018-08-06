@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { updateFilter } from "../data/actions/state";
+import { updateFilter } from "../data/actions";
 import Filters from "../components/Filters";
 
 const mapDispatchToProps = dispatch => ({

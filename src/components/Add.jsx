@@ -1,17 +1,15 @@
 import React from "react";
 
-export default ({ onChange, value, onClick }) => (
-	<form>
+export default ({ onChange, value, addItem }) => (
+	<div>
         <input 
         	onChange={ onChange } 
         	value={ value } 
         	type="text" 
-        	placeholder="What do you need todo?"
+        	placeholder="What do you need to do?"
         />
-        <input 
-        	type="submit" 
-        	value="Add"
-        	onClick={ onClick }
-        />
-    </form>
+        <button 
+        	onClick={ addItem }
+        >Add Todo</button>
+    </div>
 );
