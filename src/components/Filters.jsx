@@ -5,5 +5,6 @@ export default ({ onClick }) => (
         <li onClick={ () => onClick(0) }>All</li>
         <li onClick={ () => onClick(1) }>Completed</li>
         <li onClick={ () => onClick(2) }>To Do</li>
+        <li onClick={ () => onClick(3) }>Deleted</li>
     </ul>
 );

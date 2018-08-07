@@ -17,10 +17,13 @@ const mapStateToProps = (state, i) => {
 	
 	switch(state.get("filter")) {
 		case 1:
-			tasksFiltered = tasksRaw.filter(task => task.get("completed"));
+			tasksFiltered = tasksRaw.filter(task => task.get("completed") && !task.get("deleted"));
 			break;
 		case 2: 
-			tasksFiltered = tasksRaw.filter(task => !task.get("completed"));
+			tasksFiltered = tasksRaw.filter(task => !task.get("completed") && !task.get("deleted"));
+			break;
+		case 3: 
+			tasksFiltered = tasksRaw.filter(task => task.get("deleted"));
 			break;
 		default: 
 			tasksFiltered = tasksRaw;
