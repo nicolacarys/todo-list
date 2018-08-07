@@ -45,7 +45,9 @@ const addTask = (state, action) => {
     }
 };
 // removes the correct item, but it doesn't seem to work with the Item map over "tasks"
-const removeTask = (state, { i }) => state.get("tasks").filter((task, index) => index !== i);
+// const removeTask = (state, { i }) => state.get("tasks").filter((task, index) => index !== i);
+
+const removeTask = (state, { i }) => state.setIn(["tasks", i, "deleted"], true);
 
 const completeTask = (state, { i }) => state.setIn(["tasks", i, "completed"], true);
 

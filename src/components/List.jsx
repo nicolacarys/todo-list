@@ -14,6 +14,7 @@ export default ({ tasks, editItem, stopEditing, onChange, deleteTask, completeTa
 				deleteTask={ () => deleteTask(i) }
 				completeTask={ () => completeTask(i) }
 				completed={ item.get("completed") }
+				deleted={ item.get("deleted") }
 			>{ item.get("task") }
 			</Item>
 		)) }	

@@ -1,7 +1,7 @@
 import React from "react";
 
-export default ({ editing, onChange, value, editItem, stopEditing, children, deleteTask, completeTask, completed }) => (
-	<div>
+export default ({ editing, onChange, value, editItem, stopEditing, children, deleteTask, completeTask, completed, deleted }) => (
+	<div className={ deleted ? "archive" : "active" }>
 	  <input 
 	  	type="checkbox" 
 	  	onClick={ completeTask }

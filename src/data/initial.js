@@ -7,18 +7,21 @@ export default Map({
 	        task: "Write React-Redux App",
 	        completed: false,
 	        editing: false,
+	        deleted: false,
     	}),
     	Map({
 	        id: 1,
 	        task: "Write API thingies",
 	        completed: false,
 	        editing: false,
+	        deleted: false,
     	}),
     	Map({
 	        id: 2,
 	        task: "Finish the app and go home",
 	        completed: false,
 	        editing: false,
+	        deleted: false,
     	})
 	]),
 
