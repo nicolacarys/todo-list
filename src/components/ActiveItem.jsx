@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 
 export default ({ completeTask, editing, onChange, value, stopEditing, completed, editItem, children, deleteTask }) => (
 	<div>
@@ -12,9 +13,14 @@ export default ({ completeTask, editing, onChange, value, stopEditing, completed
 		  		<input onChange={ (e) => onChange(e.target.value) } value={ value } /> 
 				  <button onClick={ stopEditing }>Save</button>
 			  </div>
-	  	: <p className={ completed ? "completed" : "active" } onClick={ editItem }>{ children }</p>
+	  	: <div>
+		  		<p 
+		  			className={ completed ? "completed" : "active" } 
+		  			onClick={ editItem }>{ children }
+	  			</p>
+				  <Button deleteTask={ deleteTask } completed={ completed }/> 
+	  		</div>
 	  	}
 
-	  <button onClick={ deleteTask }>Delete</button> 
   </div>
 )
